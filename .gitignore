@@ -1,0 +1,5 @@
+*.pyc
+settings.py
+credentials.py
+__pycache__
+*.retry
