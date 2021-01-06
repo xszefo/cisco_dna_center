@@ -23,12 +23,16 @@ def main():
         return False
 
     resp_json = response.json()['response']
+    
+    print('\n{:24} {:17} {:10} {:15}'.format('Name', 'MAC', 'Soft', 'IP'))
+    print(67*'-')
     for device in resp_json:
-        print(10*'*')
-        print(f'Name: {device["hostname"]}')
-        print(f'MAC: {device["macAddress"]}')
-        print(f'Soft: {device["softwareVersion"]}')
-        print(f'IP: {device["managementIpAddress"]}')
+        if device['hostname']:
+            hostname = device['hostname']
+            macAddress = device['macAddress']
+            softwareVersion = device['softwareVersion']
+            managementIpAddress = device['managementIpAddress']
+            print(f'{hostname:24} {macAddress:17} {softwareVersion:10} {managementIpAddress:15}')
 
 
 if __name__ == '__main__':
